@@ -7,22 +7,35 @@ import Additional from './components/Additional';
 import District from './components/District';
 import StudentOrGroup from './components/StudentOrGroup';
 import Concerns from './components/Concerns';
+import IntroducingConcern from './components/IntroducingConcern';
+import ChooseConcerns from './components/ChooseConcerns';
+
 import Aside from './components/Aside';
 const FormItem = Form.Item;
 class NewPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      nowPages: 'Concerns',
+      nowPages: 'IntroducingConcern',
     };
   }
   componentDidMount() {
   }
-
   onSuccesscallbak = (name) => {
-    this.setState({
-      nowPages: name
-    })
+    const { form } = this.props;
+    if (name == 'last') {
+      form.validateFieldsAndScroll((err, values) => { 
+        if (!err) {
+           console.log(values)
+        } else { 
+          console.log("失败")
+        }
+      })
+     } else { 
+      this.setState({
+        nowPages: name
+      })
+    }
   }
 
   render() {
@@ -35,7 +48,9 @@ class NewPage extends Component {
       { name: 'Additional', Components: <Additional form={this.props.form} onSuccesscallbak={this.onSuccesscallbak} /> },
       { name: 'District', Components: <District form={this.props.form} onSuccesscallbak={this.onSuccesscallbak} /> },
       { name: 'StudentOrGroup', Components: <StudentOrGroup form={this.props.form} onSuccesscallbak={this.onSuccesscallbak} /> },
-      { name: 'Concerns', Components: <Concerns form={this.props.form} onSuccesscallbak={this.onSuccesscallbak} /> }
+      { name: 'Concerns', Components: <Concerns form={this.props.form} onSuccesscallbak={this.onSuccesscallbak} /> },
+      { name: 'IntroducingConcern', Components: <IntroducingConcern form={this.props.form} onSuccesscallbak={this.onSuccesscallbak} /> },
+      { name: 'ChooseConcerns', Components: <ChooseConcerns form={this.props.form} onSuccesscallbak={this.onSuccesscallbak} /> }
     ]
     return (
       <div>
@@ -45,9 +60,7 @@ class NewPage extends Component {
             <Form>
               <div className="steps-content">
                 {pages.length && pages.map((item, index) => {
-                  if (item.name === nowPages) {
-                    return <div key={index}>{item.Components}</div>
-                  }
+                    return <div key={index} style={{display:item.name === nowPages?'block':'none'}}>{item.Components}</div>
                 })}
               </div>
             </Form>
