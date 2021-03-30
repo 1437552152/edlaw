@@ -13,7 +13,7 @@ class NewPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      nowPages: 'Contact',
+      nowPages: 'Concerns',
     };
   }
   componentDidMount() {
@@ -40,8 +40,8 @@ class NewPage extends Component {
     return (
       <div>
         <TopNavBar />
-        <div className="box" style={{margin:'0 auto', width: '1500px' }}>
-          <div style={{ float: 'left', width: '1200px' }}>
+        <div className="box" style={{margin:'0 auto', width: '1200px' }}>
+          <div style={{ float: 'left', width: '900px' }}>
             <Form>
               <div className="steps-content">
                 {pages.length && pages.map((item, index) => {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, Input, Row, Col } from 'antd';
+import { Button, Form, Input, Row, Col,Icon } from 'antd';
 const FormItem = Form.Item;
 class Contact extends Component {
   constructor(props) {
@@ -82,8 +82,8 @@ class Contact extends Component {
             </FormItem>  </Col>
         </Row>
         <div style={{ marginTop: '30px', display: 'flex', justifyContent: 'space-between' }}>
-          <b style={{ color: '#000', fontSize: '23px', height: '50px' }} onClick={() => this.props.onSuccesscallbak && this.props.onSuccesscallbak('Home')}>back</b>
-          <Button style={{ backgroundColor: '#5064C7', color: '#fff', fontSize: '23px', height: '50px' }} onClick={() => this.props.onSuccesscallbak && this.props.onSuccesscallbak('Additional')}>next</Button></div>
+          <span style={{ color: '#000', fontSize: '23px', height: '50px' }} onClick={() => this.props.onSuccesscallbak && this.props.onSuccesscallbak('Home')}><Icon type="left" />back</span>
+          <Button style={{ backgroundColor: '#5064C7', color: '#fff', fontSize: '20px',width:'100px', height: '46px',lineHeight:'20px' }} onClick={() => this.props.onSuccesscallbak && this.props.onSuccesscallbak('StudentOrGroup')}>next</Button></div>
       </div>
     )
   }
