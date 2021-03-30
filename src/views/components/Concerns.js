@@ -26,7 +26,7 @@ class Concerns extends Component {
           Then, we'll go through a series of yes/no questions based on the student's legal rights. If you identify a concern related to a specific legal requirement, we'll add a paragraph to your statement of concerns. The guide will suggest a sentence or two to tell the PRS officer what legal right was violated, and you'll add any relevant details about what happened.
          </div>
         <div style={{ marginTop: '30px', display: 'flex', justifyContent: 'space-between' }}>
-          <span style={{ color: '#000', fontSize: '23px', height: '50px' }} onClick={() => this.props.onSuccesscallbak && this.props.onSuccesscallbak('StudentOrGroup')}><Icon type="left" />back</span>
+          <span style={{ color: '#000', fontSize: '23px', height: '50px' }} onClick={() => this.props.onSuccesscallbak && this.props.onSuccesscallbak('StudentOrGroup')}><Icon type="left" />Back</span>
           <Button style={{ backgroundColor: '#5064C7', color: '#fff', fontSize: '20px', width: '100px', height: '46px', lineHeight: '20px' }} onClick={() => this.props.onSuccesscallbak && this.props.onSuccesscallbak('StudentOrGroup')}>next</Button></div>
       </div>
     )
