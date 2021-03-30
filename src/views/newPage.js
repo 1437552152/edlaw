@@ -16,7 +16,7 @@ class NewPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      nowPages: 'IntroducingConcern',
+      nowPages: 'Home',
     };
   }
   componentDidMount() {
@@ -43,15 +43,21 @@ class NewPage extends Component {
     let formItemLayout = { labelCol: { span: 5 }, wrapperCol: { span: 12, offset: 1 } };
     const { nowPages } = this.state;
     const pages = [
-      { name: 'Home', Components: <Home form={this.props.form} onSuccesscallbak={this.onSuccesscallbak} /> },
-      { name: 'Contact', Components: <Contact form={this.props.form} onSuccesscallbak={this.onSuccesscallbak} /> },
-      { name: 'Additional', Components: <Additional form={this.props.form} onSuccesscallbak={this.onSuccesscallbak} /> },
-      { name: 'District', Components: <District form={this.props.form} onSuccesscallbak={this.onSuccesscallbak} /> },
-      { name: 'StudentOrGroup', Components: <StudentOrGroup form={this.props.form} onSuccesscallbak={this.onSuccesscallbak} /> },
-      { name: 'Concerns', Components: <Concerns form={this.props.form} onSuccesscallbak={this.onSuccesscallbak} /> },
-      { name: 'IntroducingConcern', Components: <IntroducingConcern form={this.props.form} onSuccesscallbak={this.onSuccesscallbak} /> },
-      { name: 'ChooseConcerns', Components: <ChooseConcerns form={this.props.form} onSuccesscallbak={this.onSuccesscallbak} /> }
-    ]
+      { name: 'Home', id: 1, Components: <Home form={this.props.form} onSuccesscallbak={this.onSuccesscallbak} /> },
+      { name: 'Contact', id: 2, Components: <Contact form={this.props.form} onSuccesscallbak={this.onSuccesscallbak} /> },
+      { name: 'Additional', id: 3, Components: <Additional form={this.props.form} onSuccesscallbak={this.onSuccesscallbak} /> },
+      { name: 'District', id: 4, Components: <District form={this.props.form} onSuccesscallbak={this.onSuccesscallbak} /> },
+      { name: 'StudentOrGroup', id: 5, Components: <StudentOrGroup form={this.props.form} onSuccesscallbak={this.onSuccesscallbak} /> },
+      { name: 'Concerns', id: 6, Components: <Concerns form={this.props.form} onSuccesscallbak={this.onSuccesscallbak} /> },
+      { name: 'IntroducingConcern', id: 6, Components: <IntroducingConcern form={this.props.form} onSuccesscallbak={this.onSuccesscallbak} /> },
+      { name: 'ChooseConcerns', id: 7, Components: <ChooseConcerns form={this.props.form} onSuccesscallbak={this.onSuccesscallbak} /> }
+    ];
+    let id = 0;
+    pages.map(item => { 
+      if (item.name == nowPages) { 
+        id=item.id
+      }
+    })
     return (
       <div>
         <TopNavBar />
@@ -60,13 +66,13 @@ class NewPage extends Component {
             <Form>
               <div className="steps-content">
                 {pages.length && pages.map((item, index) => {
-                    return <div key={index} style={{display:item.name === nowPages?'block':'none'}}>{item.Components}</div>
+                  return <div key={index} style={{ display: item.name === nowPages ? 'block' : 'none' }}>{item.Components}</div>
                 })}
               </div>
             </Form>
           </div>
           <div style={{ float: 'left', width: '250px',marginLeft:'50px' }}>
-            <Aside />
+            <Aside id={id}/>
           </div>
         </div>
       </div>

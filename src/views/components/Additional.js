@@ -90,7 +90,7 @@ class Additional extends Component {
 
         <div style={{ marginTop: '30px', display: 'flex', justifyContent: 'space-between' }}>
           <span style={{ color: '#000', fontSize: '23px', height: '50px' }} onClick={() => this.props.onSuccesscallbak && this.props.onSuccesscallbak('Contact')}><Icon type="left" />Back</span>
-          <Button style={{ backgroundColor: '#5064C7', color: '#fff', fontSize: '20px',width:'100px', height: '46px',lineHeight:'20px' }} onClick={() => this.props.onSuccesscallbak && this.props.onSuccesscallbak('StudentOrGroup')}>next</Button></div>
+          <Button style={{ backgroundColor: '#5064C7', color: '#fff', fontSize: '20px',width:'100px', height: '46px',lineHeight:'20px' }} onClick={() => this.props.onSuccesscallbak && this.props.onSuccesscallbak('District')}>next</Button></div>
       </div>
     )
   }
